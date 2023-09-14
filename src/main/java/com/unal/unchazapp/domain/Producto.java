@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,24 +17,21 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Producto {
+
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "catalogo_id")
-    private Catalogo catalogo;
-	
     @Column(name = "nombre_producto", length = 20)
 	private String nombreProducto;
     
     @Column(name = "precio_producto", length = 20)
-	private Float precioProducto;
-    
-    @Lob
-    private byte[] imagenProducto;
+	private Double precioProducto;
     
     @Column(name = "descripcion_producto", length = 300)
 	private String descripcionProducto;
 
+    @ManyToOne
+    @JoinColumn(name = "id_catalogo")
+    private Catalogo catalogo;
 }

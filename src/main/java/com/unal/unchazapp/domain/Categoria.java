@@ -8,6 +8,4 @@ public enum Categoria {
 	ROPA,
 	MANUALIDADES,
 	OBJETOS_ENTRETENIMIENTO
-	
-
 }
